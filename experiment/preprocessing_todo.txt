@@ -1,0 +1,51 @@
+## TODO: 
+#Target Column: IncidentGrade - First drop the entire rows that has null values and Just label encode this. Also handle class imbalance
+
+#ID, #AlertId: group IDs based on Target variable and either use the counts or use (0,1,2) for the categories respectively
+     and for new ID's assign -1 value for others and . (relation : one to one )
+
+#DetectorId : relation (one to many). Use the counts to encode the data, and consider counts less than 5000 as others category (0.036%)
+
+#OrgId: relation (one to many). Use the counts to encode the data, and consider counts less than 5000 as others category (0.005%)
+#Timestamp : Create separate columns for day, drop the rest timestamp (month, year didn't add anything to the target value) also add hour minutes info
+#AlertTitle : Create a "others" category for lower than 5000(0.05%) counts and replace values with the counts and finally normalize
+#Category:  OHE before doing that create a new group "others" by aggregating the category together which have total count less than 5000 (0.05%)
+#EntityType: create a other category which counts are less than 10000 (0.01%) and do OHE.
+#EvidenceRole : Just do label encode this, have only two categories.
+#DeviceId, Sha256, Url, IpAddress, AccountSid, AccountUpn,AccountObjectId,AccountName,DeviceName,NetworkMessageId, 
+                    ApplicationId, ApplicationName, FileName, FolderPath, OSVersion, CountryCode, State, City
+                 : The columns are skewed too much, mark the most repeated one as -2 , create "others" categories aggregating categories where total count is less than
+                    0.1% . and finally replace column with counts and normalize the columns
+
+#OSFamily: Has only 4 or 5 Categories so use OHE
+
+
+
+
+
+
+#Dropping Columns: 
+### IncidentId: Because ID and OrgId gives the informations of this IncidentId detail
+### ActionGrouped: Drop the column has too many null values
+### ActionGranular: Drop the column has too many null values
+### MitreTechniques : Drop the column has too many null values
+### EmailClusterId : Drop the column has too many null values
+### LastVerdict : ''
+### SuspicionLevel : '
+### AntispamDirection : ''
+### Roles : ''
+### ThreatFamily : ''
+### ResourceType : ''  
+### RegistryValueName : The data skewed to much
+### RegistryKey, RegistryValueData, OAuthApplicationId, ResourceIdName
+
+
+
+#Yet to decide: 
+
+
+
+
+
+#Skipped Features: 
+All IDs   
