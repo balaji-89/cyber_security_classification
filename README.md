@@ -1,4 +1,3 @@
-Here's some initial content you could include in your README file to describe your model for the Microsoft Security Incident Prediction dataset:
 
 ---
 
